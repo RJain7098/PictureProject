@@ -17,8 +17,9 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  */
 public class Picture extends SimplePicture
 {
+  Random generator = new Random();
   ///////////////////// constructors //////////////////////////////////
-
+    
   /**
    * Constructor that takes no arguments
    */
@@ -263,5 +264,51 @@ public class Picture extends SimplePicture
               
               
   }
-
+  
+  public void edgeDetection(int amount)
+  {
+      Pixel topPixel = null;
+      Pixel botPixel = null;
+      int topValue;
+      int botValue;
+      
+      int value;
+      
+      for (int y = 0; y < getHeight()-1; y++)
+      {
+          for (int x = 0; x < getWidth(); x++)
+          {
+              topPixel = getPixel(x, y);
+              botPixel = getPixel(x, y+1);
+              
+              topValue = (topPixel.getRed() + topPixel.getBlue() + topPixel.getGreen())/ 3;
+              botValue = (botPixel.getRed() + botPixel.getBlue() + botPixel.getGreen())/ 3;
+              
+              value = Math.abs(topValue-botValue);
+              
+              if (value < amount)
+              {
+                  topPixel.setColor(Color.white);
+              }
+              else
+                  topPixel.setColor(Color.black);
+              
+          }
+      }
+  }
+  
+  public void glassFilter(int amount)
+  {
+      
+  }
+  
+  /**
+   * Helper method for glass that generates a random number between low and high
+   */
+  public int random(int low, int high)
+  {
+      
+      return 0;
+  }
+  
 } // this } is the end of class Picture, put all new methods before this
