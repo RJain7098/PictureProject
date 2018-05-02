@@ -12,14 +12,21 @@ public class CollageCreater
     {
         Picture demon = new Picture("images/demon.jpg");
         Picture vader = new Picture("images/vaderchoke.jpg");
-        demon.explore();
+        //demon.explore();
         
-        demon.edgeDetection(4);
-        demon.explore();
+        //demon.edgeDetection(4);
+        //demon.explore();
         
+        //vader.explore();
+        //vader.edgeDetection(10);
+        //vader.explore();
+        
+        //demon.glassFilter(10);
+        //demon.explore();
+        
+        vader.glassFilter(5);
         vader.explore();
-        vader.edgeDetection(10);
-        vader.explore();
+        
         
         
     }

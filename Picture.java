@@ -299,7 +299,48 @@ public class Picture extends SimplePicture
   
   public void glassFilter(int amount)
   {
+      Pixel randPixel, currentPixel;
+      int randX, randY;
       
+      /*
+      int startX, startY, endX, endY;
+      startX = 11;
+      endX = getWidth()-11;
+      startY = 11;
+      endY = getHeight()-11;
+      */
+      
+      for (int x = 0; x < getWidth(); x++)
+      {
+          for (int y = 0; y < getHeight(); y++)
+          {
+              randX = random(x-amount, x+amount);
+              randY = random(y-amount, y+amount);
+              
+              
+              if (randX > getWidth())
+                  randX -= getWidth();
+              if (randY > getHeight())
+                  randY -= getHeight();
+                  
+              System.out.println(randY);    
+                  
+              if (randX < 0)
+                  randX += getWidth();
+              if (randY < 0)
+                  randY += getHeight();
+                  
+              System.out.println(randY);
+                  
+                  
+              
+              randPixel = getPixel(randX, randY);
+              currentPixel = getPixel(x, y);
+              //currentPixel.setColor(randPixel.getColor());
+              
+          }
+          
+      }
   }
   
   /**
@@ -307,8 +348,8 @@ public class Picture extends SimplePicture
    */
   public int random(int low, int high)
   {
-      
-      return 0;
+      int num = generator.nextInt(high-low+1);
+      return num + low;
   }
   
 } // this } is the end of class Picture, put all new methods before this
