@@ -24,7 +24,14 @@ public class CollageCreater
         //demon.glassFilter(10);
         //demon.explore();
         
-        vader.glassFilter(5);
+        /*
+        vader.explore();
+        vader.glassFilter(3);
+        vader.explore();
+        */
+       
+        vader.explore();
+        vader.solarize(100);
         vader.explore();
         
         

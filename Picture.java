@@ -254,7 +254,7 @@ public class Picture extends SimplePicture
           //loop through the rows
           for (int sourceY = 0, targetY = 0; sourceY < picture.getHeight(); sourceY += 2, targetY++)
           {
-              //set the target pixel color the ource pixel color
+              //set the target pixel color the source pixel color
               sourcePixel = picture.getPixel(sourceX, sourceY);
               targetPixel = this.getPixel(targetX, targetY);
               targetPixel.setColor(sourcePixel.getColor());
@@ -299,7 +299,7 @@ public class Picture extends SimplePicture
   
   public void glassFilter(int amount)
   {
-      Pixel randPixel, currentPixel;
+      
       int randX, randY;
       
       /*
@@ -318,25 +318,26 @@ public class Picture extends SimplePicture
               randY = random(y-amount, y+amount);
               
               
-              if (randX > getWidth())
-                  randX -= getWidth();
-              if (randY > getHeight())
-                  randY -= getHeight();
+              if (randX >= getWidth())
+                  randX = randX - getWidth() + 1;
+              if (randY >= getHeight())
+                  randY = randY - getHeight() + 1;
+              
                   
-              System.out.println(randY);    
+                
                   
-              if (randX < 0)
-                  randX += getWidth();
-              if (randY < 0)
-                  randY += getHeight();
-                  
-              System.out.println(randY);
+              if (randX <= 0)
+                  randX = randX + getWidth() - 1;
+              if (randY <= 0)
+                  randY = randY + getHeight() - 1;
+              System.out.println(randY+"-"+randX);
                   
                   
               
-              randPixel = getPixel(randX, randY);
-              currentPixel = getPixel(x, y);
-              //currentPixel.setColor(randPixel.getColor());
+              Pixel randPixel = getPixel(randX, randY);
+              Pixel currentPixel = getPixel(x, y);
+              currentPixel.setColor(randPixel.getColor());
+              
               
           }
           
@@ -351,5 +352,33 @@ public class Picture extends SimplePicture
       int num = generator.nextInt(high-low+1);
       return num + low;
   }
+  
+  public void recursive()
+  {
+      
+  }
+  
+  
+  public void solarize(int threshold)
+  {
+      int intensity;
+      
+      for (int x = 0; x < getWidth(); x++)
+      {
+          for (int y = 0; y < getHeight(); y++)
+          {
+              Pixel current = getPixel(x, y);
+              intensity = (current.getRed() + current.getBlue() + current.getGreen()) / 3;
+              
+              if (intensity < threshold)
+              {
+                  current.setRed(255-current.getRed());
+                  current.setGreen(255-current.getGreen());
+                  current.setBlue(255-current.getBlue());
+              }
+          }
+      }
+  }
+  
   
 } // this } is the end of class Picture, put all new methods before this
