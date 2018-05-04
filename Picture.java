@@ -353,10 +353,13 @@ public class Picture extends SimplePicture
       return num + low;
   }
   
-  public void recursive()
+  
+              
+  public void flipVertical()
   {
       
   }
+  
   
   
   public void solarize(int threshold)

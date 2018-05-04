@@ -30,9 +30,9 @@ public class CollageCreater
         vader.explore();
         */
        
-        vader.explore();
-        vader.solarize(100);
-        vader.explore();
+        demon.explore();
+        demon.solarize(200);
+        demon.explore();
         
         
         
