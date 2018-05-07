@@ -248,11 +248,11 @@ public class Picture extends SimplePicture
       Pixel targetPixel = null;
       
       //loop through the columns
-      for (int sourceX = 0, targetX = 0; sourceX < picture.getWidth(); sourceX += 2, targetX++)
+      for (int sourceX = 0, targetX = 0; sourceX < picture.getWidth()-1; sourceX += 2, targetX++)
       {
           
           //loop through the rows
-          for (int sourceY = 0, targetY = 0; sourceY < picture.getHeight(); sourceY += 2, targetY++)
+          for (int sourceY = 0, targetY = 0; sourceY < picture.getHeight()-1; sourceY += 2, targetY++)
           {
               //set the target pixel color the source pixel color
               sourcePixel = picture.getPixel(sourceX, sourceY);
@@ -360,7 +360,7 @@ public class Picture extends SimplePicture
       {} //base case
       else
       {
-          Picture copy = new Picture (image.getWidth()/2 + 1, image.getHeight()/2 + 1);
+          Picture copy = new Picture (image.getWidth()/2 , image.getHeight()/2 );
           copy.copySmaller(image);
           
           image.recursive(copy);
