@@ -11,7 +11,7 @@ public class CollageCreater
     public static void main(String[] args)
     {
         Picture demon = new Picture("images/demon.jpg");
-        Picture vader = new Picture("images/vaderchoke.jpg");
+        Picture vader = new Picture("C:/Users/Rishabh/Documents/GitHub/PictureProject/images/vaderchoke.jpg");
         //demon.explore();
         
         //demon.edgeDetection(4);
@@ -29,10 +29,18 @@ public class CollageCreater
         vader.glassFilter(3);
         vader.explore();
         */
-       
+        
+        /*
         demon.explore();
         demon.solarize(200);
         demon.explore();
+        */
+        //demon.explore();
+        //vader.show();
+        vader.recursive(vader);
+        vader.show();
+        //vader.recursive(vader);
+        //vader.explore();
         
         
         

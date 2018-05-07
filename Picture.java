@@ -117,7 +117,7 @@ public class Picture extends SimplePicture
   }
 
   //this is a better way to do it, copy EACH pixel individually one by one
-  public void copyKatie(Picture sourcePicture)
+  public void copy(Picture sourcePicture)
   {
       //String sourceFile = ();
       //Picture sourcePicture = new Picture(sourceFile);
@@ -127,12 +127,12 @@ public class Picture extends SimplePicture
 
       //width of the source must be <= the canvas we are copying to
       //loop through the columns
-      for (int sourceX = 0, targetX = 50;
+      for (int sourceX = 0, targetX = this.getWidth()/4;
            sourceX < sourcePicture.getWidth();
            sourceX++, targetX++)
       {
           //loop through the rows
-          for (int sourceY = 0, targetY = 50;
+          for (int sourceY = 0, targetY = this.getHeight()/4;
                sourceY < sourcePicture.getHeight();
                sourceY++, targetY++)
           {
@@ -240,9 +240,9 @@ public class Picture extends SimplePicture
       }
   }
   
-  public void copySmaller(String filename)
+  public void copySmaller(Picture picture)
   {
-      Picture picture = new Picture(filename);
+      
       
       Pixel sourcePixel = null;
       Pixel targetPixel = null;
@@ -302,13 +302,6 @@ public class Picture extends SimplePicture
       
       int randX, randY;
       
-      /*
-      int startX, startY, endX, endY;
-      startX = 11;
-      endX = getWidth()-11;
-      startY = 11;
-      endY = getHeight()-11;
-      */
       
       for (int x = 0; x < getWidth(); x++)
       {
@@ -360,6 +353,20 @@ public class Picture extends SimplePicture
       
   }
   
+  
+  public void recursive(Picture image)
+  {
+      if (image.getHeight() < 5)
+      {} //base case
+      else
+      {
+          Picture copy = new Picture (image.getWidth()/2 + 1, image.getHeight()/2 + 1);
+          copy.copySmaller(image);
+          
+          image.recursive(copy);
+          image.copy(copy);
+      }
+  }
   
   
   public void solarize(int threshold)
