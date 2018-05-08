@@ -374,7 +374,7 @@ public class Picture extends SimplePicture
           copy.copySmaller(image);
           
           image.recursive(copy);
-          image.copy(copy, getWidth()/4, getHeight()/4);
+          image.copy(copy, copy.getWidth()/4, copy.getHeight()/4);
       }
   }
   
