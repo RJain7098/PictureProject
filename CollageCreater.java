@@ -39,11 +39,8 @@ public class CollageCreater
         */
         
         vader.explore();
-        vader.mirrorHorizontal();
+        vader.flipVertical();
         vader.explore();
-        
-        demon.mirrorHorizontal();
-        demon.explore();
         
         
         

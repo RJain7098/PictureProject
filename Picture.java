@@ -117,7 +117,7 @@ public class Picture extends SimplePicture
   }
 
   //this is a better way to do it, copy EACH pixel individually one by one
-  public void copy(Picture sourcePicture)
+  public void copy(Picture sourcePicture, int x, int y)
   {
       //String sourceFile = ();
       //Picture sourcePicture = new Picture(sourceFile);
@@ -127,12 +127,12 @@ public class Picture extends SimplePicture
 
       //width of the source must be <= the canvas we are copying to
       //loop through the columns
-      for (int sourceX = 0, targetX = this.getWidth()/4;
+      for (int sourceX = 0, targetX = x;
            sourceX < sourcePicture.getWidth();
            sourceX++, targetX++)
       {
           //loop through the rows
-          for (int sourceY = 0, targetY = this.getHeight()/4;
+          for (int sourceY = 0, targetY = y;
                sourceY < sourcePicture.getHeight();
                sourceY++, targetY++)
           {
@@ -315,23 +315,15 @@ public class Picture extends SimplePicture
                   randX = randX - getWidth() + 1;
               if (randY >= getHeight())
                   randY = randY - getHeight() + 1;
-              
-                  
-                
-                  
               if (randX <= 0)
                   randX = randX + getWidth() - 1;
               if (randY <= 0)
                   randY = randY + getHeight() - 1;
-              System.out.println(randY+"-"+randX);
-                  
-                  
               
               Pixel randPixel = getPixel(randX, randY);
               Pixel currentPixel = getPixel(x, y);
               currentPixel.setColor(randPixel.getColor());
-              
-              
+                
           }
           
       }
@@ -347,10 +339,28 @@ public class Picture extends SimplePicture
   }
   
   
-              
+  /**
+   * 
+   */            
   public void flipVertical()
   {
+      Picture copy = new Picture(getWidth(), getHeight());
       
+      Pixel sourcePixel = null;
+      Pixel targetPixel = null;
+      
+      for (int sourceX = 0, targetX = 0; sourceX < getWidth(); sourceX++, targetX++)
+      {
+          for (int sourceY = 0, targetY = getHeight()-1; sourceY < getHeight(); sourceY++, targetY--)
+          {
+              sourcePixel = getPixel(sourceX, sourceY);
+              targetPixel = copy.getPixel(targetX, targetY);
+              targetPixel.setColor(sourcePixel.getColor());
+          }
+          
+      }
+      this.copy(copy, 0, 0);
+      //copy.explore();
   }
   
   
@@ -364,7 +374,7 @@ public class Picture extends SimplePicture
           copy.copySmaller(image);
           
           image.recursive(copy);
-          image.copy(copy);
+          image.copy(copy, getWidth()/4, getHeight()/4);
       }
   }
   
