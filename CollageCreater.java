@@ -21,16 +21,18 @@ public class CollageCreater
         
         
         //vader.show();
-        vader.edgeDetection(5);
-        vader1.glassFilter(5);
+        vader2.explore();
+        //vader.edgeDetection(5);
+        //vader1.glassFilter(5);
         vader2.recursive(vader2);
-        vader3.solarize(180);
-        vader4.flipVertical();
+        //vader3.solarize(180);
+        //vader4.flipVertical();
         
+        vader2.explore();
         
         //vader.show();
         //vader1.show();
-        vader2.show();
+        //vader2.show();
         //vader3.show();
         //vader4.show();
         
