@@ -127,12 +127,12 @@ public class Picture extends SimplePicture
 
       //width of the source must be <= the canvas we are copying to
       //loop through the columns
-      for (int sourceX = 0, targetX = getWidth()/4;
+      for (int sourceX = 0, targetX = x;
            sourceX < sourcePicture.getWidth();
            sourceX++, targetX++)
       {
           //loop through the rows
-          for (int sourceY = 0, targetY = getHeight()/4;
+          for (int sourceY = 0, targetY = y;
                sourceY < sourcePicture.getHeight();
                sourceY++, targetY++)
           {
@@ -248,11 +248,11 @@ public class Picture extends SimplePicture
       Pixel targetPixel = null;
       
       //loop through the columns
-      for (int sourceX = 0, targetX = 0; sourceX < picture.getWidth()-1; sourceX += ((sourceX % 2)+1), targetX++)
+      for (int sourceX = 0, targetX = 0; sourceX < picture.getWidth()-1; sourceX += 2, targetX++)
       {
-          System.out.println((sourceX % 2)+1);
+          
           //loop through the rows
-          for (int sourceY = 0, targetY = 0; sourceY < picture.getHeight()-1; sourceY += ((sourceY % 2)+1), targetY++)
+          for (int sourceY = 0, targetY = 0; sourceY < picture.getHeight()-1; sourceY += 2, targetY++)
           {
               //set the target pixel color the source pixel color
               sourcePixel = picture.getPixel(sourceX, sourceY);

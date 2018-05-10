@@ -10,31 +10,31 @@ public class CollageCreater
 {
     public static void main(String[] args)
     {
-        Picture demon = new Picture("images/demon.jpg");
-        Picture vader = new Picture("images/demon.jpg");
-        Picture vader1 = new Picture("images/demon.jpg");
-        Picture vader2 = new Picture("images/vaderchoke.jpg");
-        Picture vader3 = new Picture("images/demon.jpg");
-        Picture vader4 = new Picture("images/demon.jpg");
-        Picture vader5 = new Picture("images/demon.jpg");
-        Picture vader6 = new Picture("images/demon.jpg");
+        
+        Picture vader = new Picture("images/bigvader.jpg");
+        Picture vader1 = new Picture("images/bigvader.jpg");
+        Picture vader2 = new Picture("images/bigvader.jpg");
+        Picture vader3 = new Picture("images/bigvader.jpg");
+        Picture vader4 = new Picture("images/bigvader.jpg");
+        Picture vader5 = new Picture("images/bigvader.jpg");
+        Picture vader6 = new Picture("images/bigvader.jpg");
         
         
-        //vader.show();
+        vader.explore();
+        
+        vader.recursive(vader);
+        vader1.flipVertical();
+        vader2.solarize(150);
+        vader3.glassFilter(10);
+        vader4.edgeDetection(20);
+        
+        
+        vader.explore();
+        vader1.explore();
         vader2.explore();
-        //vader.edgeDetection(5);
-        //vader1.glassFilter(5);
-        vader2.recursive(vader2);
-        //vader3.solarize(180);
-        //vader4.flipVertical();
+        vader3.explore();
+        vader4.explore();
         
-        vader2.explore();
-        
-        //vader.show();
-        //vader1.show();
-        //vader2.show();
-        //vader3.show();
-        //vader4.show();
         
         
         
