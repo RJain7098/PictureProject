@@ -10,6 +10,9 @@ public class CollageCreater
 {
     public static void main(String[] args)
     {
+        //This is just a jumble of random code I used for testing - running it may or may not work based on what has already been saved
+        //I used this file to create the collage
+        
         Picture canvas = new Picture("images/canvas.jpg");
         
         Picture vader = new Picture("images/bigvader.jpg");
@@ -53,34 +56,6 @@ public class CollageCreater
         
         canvas.write("images/collage.jpg");
         
-        
-        
-        
-        
-        
-        //demon.explore();
-        
-        //demon.edgeDetection(4);
-        //demon.explore();
-        
-        //vader.explore();
-        //vader.edgeDetection(10);
-        //vader.explore();
-        
-        //demon.glassFilter(10);
-        //demon.explore();
-        
-        /*
-        vader.explore();
-        vader.glassFilter(3);
-        vader.explore();
-        */
-        
-        /*
-        demon.explore();
-        demon.solarize(200);
-        demon.explore();
-        */
         
         
         
