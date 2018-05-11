@@ -240,6 +240,9 @@ public class Picture extends SimplePicture
       }
   }
   
+  /**
+   * Copies a picture smaller by a factor of 2
+   */
   public void copySmaller(Picture picture)
   {
       
@@ -265,6 +268,9 @@ public class Picture extends SimplePicture
               
   }
   
+  /**
+   * Detects the edges of a picture and sets them to black, sets everything else to black
+   */
   public void edgeDetection(int amount)
   {
       Pixel topPixel = null;
@@ -297,6 +303,9 @@ public class Picture extends SimplePicture
       }
   }
   
+  /**
+   * Changes the picture as if you were looking at it through glass
+   */
   public void glassFilter(int amount)
   {
       
@@ -340,7 +349,7 @@ public class Picture extends SimplePicture
   
   
   /**
-   * 
+   * Turns the picture upside down, but not as if you physically turned it upside down - it's a vertical flip
    */            
   public void flipVertical()
   {
@@ -363,7 +372,9 @@ public class Picture extends SimplePicture
       //copy.explore();
   }
   
-  
+  /**
+   * Recursively makes copies of the image and copies them onto the original
+   */
   public void recursive(Picture image)
   {
       if (image.getHeight() < 5)
@@ -378,7 +389,9 @@ public class Picture extends SimplePicture
       }
   }
   
-  
+  /**
+   * Negates all pixels that are under a certain threshold
+   */
   public void solarize(int threshold)
   {
       int intensity;
